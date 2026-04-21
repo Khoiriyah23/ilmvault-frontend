@@ -1,10 +1,12 @@
 import Link from "next/link";
 import SubjectTags from "@/components/SubjectTags";
 
+const BACKEND_URL = "https://ilmvault-backend.onrender.com/api";
+
 async function getBook(id) {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/books/${id}`,
+      BACKEND_URL + "/books/" + id,
       { cache: "no-store" }
     );
     const data = await res.json();
@@ -15,7 +17,7 @@ async function getBook(id) {
 }
 
 export default async function SingleResourcePage({ params }) {
-  const { bookId } = await params;
+  const { bookId } = params;
   const book = await getBook(bookId);
 
   if (!book) {
@@ -36,6 +38,8 @@ export default async function SingleResourcePage({ params }) {
       </div>
     );
   }
+
+  const downloadUrl = BACKEND_URL + "/books/" + book._id + "/download";
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-6">
@@ -99,7 +103,7 @@ export default async function SingleResourcePage({ params }) {
 
           {book.file ? (
             <a
-              href={"http://localhost:5000/api/books/" + book._id + "/download"}
+              href={downloadUrl}
               className="block w-full text-center bg-green-700 text-white py-3 rounded-xl font-semibold hover:bg-green-800 transition"
             >
               ⬇️ Download Resource
