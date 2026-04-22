@@ -37,7 +37,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Welcome Back</h2>
           <p className="text-gray-500 text-sm mt-2">
-            Log in to your Islamic Pro account
+            Log in to your IlmVault account
           </p>
         </div>
 
@@ -60,8 +60,8 @@ export default function LoginPage() {
               value={form.email}
               onChange={handleChange}
               required
-              placeholder="admin@islamicpro.com"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="admin@ilmvault.com"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white"
             />
           </div>
 
@@ -76,7 +76,7 @@ export default function LoginPage() {
               onChange={handleChange}
               required
               placeholder="••••••••"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white"
             />
           </div>
 
