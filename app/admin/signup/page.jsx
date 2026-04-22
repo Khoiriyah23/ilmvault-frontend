@@ -28,11 +28,14 @@ export default function SignupPage() {
       await api.post("/admin/signup", form);
       router.push("/admin/login");
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong.");
+      setError(err.response?.data?.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Reusable input class
+  const inputClass = "w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white";
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -42,13 +45,13 @@ export default function SignupPage() {
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Create Account</h2>
           <p className="text-gray-500 text-sm mt-2">
-            Join Islamic Pro and start sharing resources
+            Join IlmVault and start sharing resources
           </p>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-lg mb-6">
+          <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-lg mb-6 border border-red-100">
             {error}
           </div>
         )}
@@ -67,7 +70,7 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="Abdullah"
-                className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className={inputClass}
               />
             </div>
             <div className="flex-1">
@@ -81,7 +84,8 @@ export default function SignupPage() {
                 onChange={handleChange}
                 required
                 placeholder="Ibrahim"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white"              />
+                className={inputClass}
+              />
             </div>
           </div>
 
@@ -95,8 +99,8 @@ export default function SignupPage() {
               value={form.email}
               onChange={handleChange}
               required
-              placeholder="admin@islamicpro.com"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="admin@ilmvault.com"
+              className={inputClass}
             />
           </div>
 
@@ -111,7 +115,7 @@ export default function SignupPage() {
               onChange={handleChange}
               required
               placeholder="••••••••"
-              className="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+              className={inputClass}
             />
           </div>
 
